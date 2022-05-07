@@ -3,11 +3,12 @@ defmodule ExMonWeb.Router do
 
   pipeline :api do
     # All the routes will accept JSON
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/api", ExMonWeb do
-    pipe_through :api
+    pipe_through(:api)
+    resources("/trainers", TrainersController, only: [:create, :show, :delete, :update])
   end
 
   # Enables LiveDashboard only for development
@@ -21,14 +22,14 @@ defmodule ExMonWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through [:fetch_session, :protect_from_forgery]
-      live_dashboard "/dashboard", metrics: ExMonWeb.Telemetry
+      pipe_through([:fetch_session, :protect_from_forgery])
+      live_dashboard("/dashboard", metrics: ExMonWeb.Telemetry)
     end
   end
 
   scope "/", ExMonWeb do
-    pipe_through :api
+    pipe_through(:api)
 
-    get "/", WelcomeController, :index
+    get("/", WelcomeController, :index)
   end
 end
