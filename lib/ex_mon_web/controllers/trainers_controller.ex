@@ -9,7 +9,7 @@ defmodule ExMonWeb.TrainersController do
 
    defp handle_response({ :ok, trainer }, conn) do
       conn
-      |> put_status(:ok)
+      |> put_status(:created)
       |> render("create.json", trainer: trainer)
    end
 end
