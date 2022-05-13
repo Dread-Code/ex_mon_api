@@ -9,6 +9,21 @@ defmodule ExMonWeb.TrainersController do
      |> handle_response(conn)
    end
 
+   def delete(conn, %{"id" => id}) do
+      id
+      |> ExMon.delete_trainer
+      |> handle_delete(conn)
+    end
+
+    defp handle_delete({:ok, _trainer}, conn) do
+       conn
+       |> put_status(:no_content)
+       |> text("")
+    end
+
+   defp handle_delete({:error, _reason} = error, _conn), do: error
+
+
    defp handle_response({ :ok, trainer }, conn) do
       conn
       |> put_status(:created)
