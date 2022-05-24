@@ -21,7 +21,7 @@ defmodule ExMonWeb.TrainersController do
        |> text("")
     end
 
-   defp handle_delete({:error, _reason} = error, _conn), do: error
+   defp handle_delete({:error, reason}, _conn), do: {:error, reason, 400, 400}
 
    def show(conn, %{"id" => id}) do
       id
@@ -41,5 +41,5 @@ defmodule ExMonWeb.TrainersController do
       |> render(view, trainer: trainer)
    end
 
-   defp handle_response({:error, _changeset} = error, _conn, _view, _status), do: error
+   defp handle_response({:error, message}, _conn, _view, _status), do: {:error, message, 400, 400}
 end
