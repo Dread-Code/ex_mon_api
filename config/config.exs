@@ -30,6 +30,6 @@ config :phoenix, :json_library, Jason
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
 
-config :my_app, ExMonWeb.Auth.Guardian,
+config :ex_mon, ExMonWeb.Auth.Guardian,
        issuer: "ex_mon",
        secret_key: "6Z/Ox55k6sfNOIkzv1GkgpX1XpZVnJQZP6JElY8ho+Uo+E8qB7wfCKZv7JJc3R9h"
