@@ -29,3 +29,7 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+config :my_app, ExMonWeb.Auth.Guardian,
+       issuer: "ex_mon",
+       secret_key: "6Z/Ox55k6sfNOIkzv1GkgpX1XpZVnJQZP6JElY8ho+Uo+E8qB7wfCKZv7JJc3R9h"
