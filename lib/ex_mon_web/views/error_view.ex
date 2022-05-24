@@ -19,7 +19,7 @@ defmodule ExMonWeb.ErrorView do
     %{message: translate_errors(result)}
   end
 
-  def render("400.json", %{result: message}) do
+  def render("error.json", %{result: message}) do
     %{message: message}
   end
 
