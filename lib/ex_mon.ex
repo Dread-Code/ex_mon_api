@@ -10,5 +10,7 @@ defmodule ExMon do
 
   defdelegate fetch_pokemon(params), to:  Pokemon.Get, as: :call
   defdelegate create_trainer_pokemon(params), to: TrainerPokemon.Create, as: :call
+  defdelegate fetch_trainer_pokemon(params), to: TrainerPokemon.Get, as: :call
+  defdelegate delete_trainer_pokemon(params), to: TrainerPokemon.Delete, as: :call
 
 end
