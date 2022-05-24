@@ -16,6 +16,13 @@ defmodule ExMonWeb.TrainerPokemonsController do
     |> handle_response(conn, "show.json", :ok)
   end
 
+  @spec update(any, map) :: {:error, any, 400, <<_::40>>} | Plug.Conn.t()
+  def update(conn, params) do
+    params
+    |> ExMon.update_trainer_pokemon
+    |> handle_response(conn, "update.json", :ok)
+  end
+
   def delete(conn, %{"id" => id}) do
     id
     |> ExMon.delete_trainer_pokemon
