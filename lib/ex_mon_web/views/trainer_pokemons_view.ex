@@ -16,7 +16,7 @@ defmodule ExMonWeb.TrainerPokemonsView do
       }) do
     %{
       message: "Pokemon created",
-      trainer: %{
+      pokemon: %{
         id: id,
         name: name,
         inserted_at: inserted_at,
@@ -41,7 +41,7 @@ defmodule ExMonWeb.TrainerPokemonsView do
       }) do
     %{
       message: "Pokemon created",
-      trainer: %{
+      pokemon: %{
         id: id,
         name: name,
         inserted_at: inserted_at,

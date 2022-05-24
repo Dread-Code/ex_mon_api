@@ -1,6 +1,5 @@
 defmodule ExMon.Trainer.Update do
   alias ExMon.{Trainer, Repo}
-  alias Ecto.UUID
 
   def call(%{"id" => uuid} = params) do
     case ExMon.fetch_trainer(uuid) do
