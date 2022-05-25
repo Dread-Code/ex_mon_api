@@ -31,5 +31,9 @@ config :phoenix, :json_library, Jason
 import_config "#{Mix.env()}.exs"
 
 config :ex_mon, ExMonWeb.Auth.Guardian,
-       issuer: "ex_mon",
-       secret_key: "6Z/Ox55k6sfNOIkzv1GkgpX1XpZVnJQZP6JElY8ho+Uo+E8qB7wfCKZv7JJc3R9h"
+  issuer: "ex_mon",
+  secret_key: "6Z/Ox55k6sfNOIkzv1GkgpX1XpZVnJQZP6JElY8ho+Uo+E8qB7wfCKZv7JJc3R9h"
+
+config :ex_mon, ExMonWeb.Auth.Pipeline,
+  module: ExMonWeb.Auth.Guardian,
+  error_handler: ExMonWeb.Auth.ErrorHandler
