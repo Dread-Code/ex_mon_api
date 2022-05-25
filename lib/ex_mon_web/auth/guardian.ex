@@ -29,7 +29,7 @@ defmodule ExMonWeb.Auth.Guardian do
   defp validate_password(%Trainer{password_hash: hash} = trainer, password) do
     case Argon2.verify_pass(password, hash) do
       true -> create_token(trainer)
-      false -> {:error, "unauthorized", 401, 400}
+      false -> {:error, :unauthorized}
     end
   end
 
